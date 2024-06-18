@@ -28,4 +28,19 @@ public class Contacto {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if (obj  == null){
+            return false;
+        }
+
+        if (getClass() != obj.getClass()){
+            return false;
+        }
+
+        final Contacto other = (Contacto) obj;
+        return this.nombre.equals(other.getNombre());
+    }
+
 }

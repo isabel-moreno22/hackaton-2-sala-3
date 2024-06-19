@@ -17,22 +17,23 @@ public class Main {
             System.out.println("5. Verificar si la agenda está llena");
             System.out.println("6. Ver espacio libre");
             System.out.println("7. Salir");
-            System.out.println("Seleccione una opción con el número: ");
+            System.out.println("------------------------------------------");
+            System.out.print("Seleccione una opción con el número: ");
             int opcion = scanner.nextInt();
             scanner.nextLine(); //limpiar Buffer
 
 
         switch (opcion){
             case 1:
-                System.out.println("Ingrese el nombre del contacto: ");
+                System.out.print("Ingrese el nombre del contacto: ");
                 String nombre = scanner.nextLine();
-                System.out.println("Ingrese el número del contacto: ");
+                System.out.print("Ingrese el número del contacto: ");
                 String telefono = scanner.nextLine();
                 Contacto nuevoContacto = new Contacto(nombre, telefono);
                 agenda.añadirContacto(nuevoContacto);
                 break;
             case 2:
-                System.out.println("ingrese el nombre del contacto a buscar");
+                System.out.print("ingrese el nombre del contacto a buscar: ");
                 String nombreBuscar = scanner.nextLine();
                 agenda.buscarContacto(nombreBuscar);
 
@@ -41,13 +42,13 @@ public class Main {
                 agenda.listarContacto();
                 break;
             case 4:
-                System.out.println("ingrese el nombre del contacto a eliminar");
+                System.out.print("ingrese el nombre del contacto a eliminar: ");
                 String nombreEliminar = scanner.nextLine();
                 agenda.eliminarContacto(new Contacto(nombreEliminar, ""));;
                 break;
             case 5:
                 if (agenda.agendaLlena()){
-                    System.out.println("Tu agenda esta llena");
+                    System.out.println("Tu agenda esta llena.");
                 }else {
                     System.out.println("Tu agenda no esta llena, aún tienes: " + agenda.espaciosDisponibles() + " espacios disponibles");
                 }
@@ -56,12 +57,12 @@ public class Main {
                 System.out.println("Tienes " + agenda.espaciosDisponibles() + " espacios disponibles");
                 break;
             case 7:
-                System.out.println("Has salido de tu agenda de contactos");
+                System.out.println("Has salido de tu agenda de contactos.");
                 scanner.close();
                 System.exit(0);
                 break;
             default:
-                System.out.println("selecciona una opcion correcta");
+                System.out.print("selecciona una opcion correcta: ");
         }
 
         }
